@@ -114,6 +114,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     Alert.alert('🏆 ¡Logro desbloqueado!', `${message} +${reward} CPX`);
   };
 
+ 
   const getRewardForAchievement = (id: string) => {
     switch (id) {
       case 'first-buy': return 100;
