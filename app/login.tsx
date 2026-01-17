@@ -59,7 +59,7 @@ export default function LoginScreen() {
         trumpcoin: Number(data.usuario?.trumpcoin || 0),
       };
 
-      setUser(usuario); // memoria
+      setUser(usuario); 
       await AsyncStorage.setItem('user', JSON.stringify(usuario)); // persistencia
 
       Alert.alert('Éxito', data.mensaje || 'Login correcto');

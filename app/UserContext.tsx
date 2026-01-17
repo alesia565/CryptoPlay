@@ -47,7 +47,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [achievements, setAchievements] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔹 Restaurar datos al iniciar la app
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -64,7 +63,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     loadData();
   }, []);
 
-  // 🔹 Guardar usuario en memoria y AsyncStorage
   const setUser = async (data: UserData) => {
     setUserState(data);
     await AsyncStorage.setItem('user', JSON.stringify(data));
@@ -110,7 +108,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
     if (user) {
       const updatedUser = { ...user, cpx_balance: parseFloat((user.cpx_balance + reward).toFixed(2)) };
-      setUser(updatedUser); // 🔹 también guarda en AsyncStorage
+      setUser(updatedUser); 
     }
 
     Alert.alert('🏆 ¡Logro desbloqueado!', `${message} +${reward} CPX`);
@@ -136,7 +134,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  // 🔹 Logout no borra datos
   const logout = () => {
     Alert.alert('Sesión cerrada', 'Tus datos se mantienen guardados.');
   };
